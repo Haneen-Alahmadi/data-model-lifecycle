@@ -157,7 +157,10 @@ def train(
     save_model(model=model)
 
     # The latest model should be moved to staging
-    pass  # YOUR CODE HERE
+    # $CHA_BEGIN
+    if MODEL_TARGET == 'mlflow':
+        mlflow_transition_model(current_stage="None", new_stage="Staging")
+    # $CHA_END
 
     print("✅ train() done \n")
 
